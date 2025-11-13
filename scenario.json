@@ -1,0 +1,21 @@
+{
+    "name":"R107 CTRL FINAL",
+    "date": "13/11/2025",
+    "questions": [
+        {
+            "Libellé": "dézippez le fichier \"tpnote.tar.gz\" dans le dossier \"/home/superviseur\" pour obtenir un dossier \"tpnote\"",
+            "commande": "tar -xvf tpnote.tar.gz",
+            "points": 1
+        },
+        {
+            "Libellé": "Vous devez vous positionner dans le dossier « tpnote » ce dossier est créé automatiquement par la commande qui a permis de décompresser tpnote.tar.gz",
+            "commande": "cd tpnote",
+            "points": 1
+        },
+        {
+            "Libellé": "Créez l’arborescence suivante en dessous de ce dossier tpnote",
+            "commande": "mkdir -p dirA/dirA1 && mkdir dirB/dirB1 && mkdir -p dirB/dirB2/dirB21 && mkdir -p dirC/dirC1/dirC11 && mkdir -p dirC/dirC2 && mkdir -p dirC/dirC3",
+            "points": 2
+        }
+    ]
+}
