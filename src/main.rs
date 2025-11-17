@@ -1,7 +1,9 @@
 use std::io;
-use std::process::Command;
-use std::fs;
-use serde_json::Result;
+//use std::process::Command;
+use std::path::Path;
+use serde::Deserialize;
+use serde::Serialize;
+
 
 /**
  * fonction qui permet de lire les commandes au clavier
@@ -14,17 +16,40 @@ fn read_cmd() -> io::Result<String> {  // type de Result un Result avec String s
     Ok(buffer.trim().to_string()) // ajout de : .trim().to_string() pour supprimer le \n
 }
 
+#[derive(Serialize, Deserialize)]
+pub struct Question {
+    libelle : String,
+    commande: String,
+    points: u32,
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct Scenario {
+    name: String,
+    date: String,
+    questions: Vec<Question>,
+}
 /**
  * Fonction get_scenario permet de lire le fichier Json de configuraiton de l'exercice
  */
-fn get_scenario() {
-
+fn get_scenario() -> Result<Scenario, Box<dyn std::error::Error>> {
+    let json_file_path = Path::new("./scenario.json");
+    let file = std::fs::File::open(json_file_path)?;
+    let _mon_scenario: Scenario = serde_json::from_reader(file)?;
+    Ok(_mon_scenario)
 }
 
 /** 
  * Fonction main principale point d'entrée du programme
 */
 fn main() {
+    let _mon_scenar = get_scenario();
+    match _mon_scenar {
+        Ok(v) => {
+            println!("nom scenario : {}", v.name);
+        },
+        Err(e) => println!("error input: {:?}", e),
+    }
     let mut _points : u32 = 0;
     println!("Entrez la commande: ");
     let result = read_cmd();
