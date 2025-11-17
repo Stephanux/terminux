@@ -3,7 +3,7 @@
     "date": "13/11/2025",
     "questions": [
         {
-            "libelle": "dézippez le fichier \"tpnote.tar.gz\" dans le dossier \"/home/superviseur\" pour obtenir un dossier \"tpnote\"",
+            "libelle": "dézippez le fichier tpnote.tar.gz dans le dossier « /home/superviseur »   BB pour obtenir un dossier tpnote",
             "commande": "tar -xvf tpnote.tar.gz",
             "points": 1
         },
