@@ -1,5 +1,5 @@
 use std::io;
-//use std::process::Command;
+use std::process::Command;
 use serde::Deserialize;
 use serde::Serialize;
 use std::path::Path;
@@ -66,6 +66,7 @@ fn main() {
                 let result = read_cmd();
                 match result {
                     Ok(cmd) => {
+                        //Command::new(cmd).arg("").output().expect("failed to execute process")
                         if cmd == v.questions[_compteur].commande {
                             _points += 1;  // on incrémente les points de l'exercice
                         }
