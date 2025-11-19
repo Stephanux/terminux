@@ -1,0 +1,7 @@
+- ajouter l'exécution des commandes via Process.
+- ajouter dans json la commande de vérification et l'exécuter dans la boucle
+- chercher un moyen de valider le résultat des commandes reponses
+- poster la note dans un web services pour générer la feuille de note.
+- ajouter l'authentification de l'étudiant (SSO UPPA si possible, sinon nom, prénom.)
+- simuler une interface de terminal Bash
+- ...
