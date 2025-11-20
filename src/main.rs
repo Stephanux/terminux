@@ -66,9 +66,9 @@ fn main() {
                 let result = read_cmd();
                 match result {
                     Ok(cmd) => {
-                         let parts = cmd.split(' ');
-                        //Command::new(cmd).arg("").arg("").output().expect("failed to execute process")
-                        */
+                        let cmd_list: Vec<&str>= cmd.split(' ').collect();
+                        println!("cmd_list : {:?}", cmd_list);
+                        //Command::new(cmd).arg("").output().expect("failed to execute process")
                         if cmd == v.questions[_compteur].commande {
                             _points += 1;  // on incrémente les points de l'exercice
                         }
