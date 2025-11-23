@@ -68,7 +68,14 @@ fn main() {
                     Ok(cmd) => {
                         let cmd_list: Vec<&str>= cmd.split(' ').collect();
                         println!("cmd_list : {:?}", cmd_list);
-                        //Command::new(cmd).arg("").output().expect("failed to execute process")
+                        let mut command = Command::new(cmd_list[0]);
+                        command.current_dir("/home/stephane/");
+                        println!("dossier courant : {:?}", command.get_current_dir());
+                        for _part in &cmd_list[1..] {
+                            command.arg(_part);
+                        }
+                        let _result_cmd = command.output().expect("failed to execute process");
+                        println!("resultat commande : {:?}", _result_cmd);
                         if cmd == v.questions[_compteur].commande {
                             _points += 1;  // on incrémente les points de l'exercice
                         }
